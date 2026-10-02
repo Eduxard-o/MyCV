@@ -1,17 +1,37 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Tab 2
+      Formación
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div class="timeline">
+    <div class="timeline-item" *ngFor="let e of educacion">
+      <div class="timeline-marker"></div>
+      <div class="timeline-content">
+        <span class="timeline-date">{{ e.anio }}</span>
+        <h2 class="timeline-title">{{ e.titulo }}</h2>
+        <p class="timeline-subtitle">{{ e.institucion }}</p>
+        <p class="timeline-description">{{ e.descripcion }}</p>
+      </div>
+    </div>
+  </div>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <div class="section-title" style="margin-top: 40px;">TRABAJO SELECCIONADO</div>
+  <h1 class="main-title">Proyectos</h1>
+
+  <div class="projects-container">
+    <div class="project-card" *ngFor="let p of proyectos; let i = index">
+      <div class="project-index">0{{ i + 1 }} / 0{{ proyectos.length }}</div>
+      <h2 class="project-title">{{ p.proyecto }}</h2>
+      <p class="project-desc">{{ p.descripcion }}</p>
+      
+      <div class="project-footer">
+        <span class="project-role">{{ p.rol }}</span>
+        <ion-icon name="open-outline" class="project-icon"></ion-icon>
+      </div>
+    </div>
+  </div>
 </ion-content>
