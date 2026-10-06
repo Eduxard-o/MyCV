@@ -1,0 +1,405 @@
+// ==========================================
+// CABECERA EDITORIAL
+// ==========================================
+ion-header, ion-toolbar {
+  background: #FAFAF8 !important;
+  --background: #FAFAF8 !important;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+
+  .brand-mark {
+    width: 28px;
+    height: 28px;
+    background: #1C1917;
+    color: #FAFAF8;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Georgia, 'Times New Roman', serif;
+  }
+
+  .brand-text {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #1C1917;
+
+    .brand-muted {
+      color: #78716C;
+      font-weight: 400;
+    }
+  }
+}
+
+// ==========================================
+// CONTENEDOR GENERAL
+// ==========================================
+ion-content {
+  --background: #FAFAF8;
+  --padding-top: 14px;
+  --padding-bottom: 32px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+// ==========================================
+// HEADER DE LA PÁGINA
+// ==========================================
+.page-intro {
+  margin-bottom: 22px;
+
+  .intro-kicker {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: #0E7C7B;
+    background: #E6F5F2;
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin-bottom: 8px;
+  }
+
+  .intro-title {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 26px;
+    line-height: 1.15;
+    color: #1C1917;
+    margin: 0 0 6px 0;
+    font-weight: 700;
+
+    em {
+      font-style: italic;
+      color: #F2542D;
+    }
+  }
+
+  .intro-desc {
+    font-size: 13px;
+    color: #78716C;
+    margin: 0;
+    line-height: 1.45;
+  }
+}
+
+// ==========================================
+// SECCIONES DE STACK
+// ==========================================
+.stack-section {
+  margin-bottom: 24px;
+
+  .section-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+
+    ion-icon {
+      font-size: 17px;
+      color: #0E7C7B;
+    }
+
+    h2 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #1C1917;
+      margin: 0;
+    }
+  }
+}
+
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+// ==========================================
+// TARJETA DE HABILIDAD INDIVIDUAL
+// ==========================================
+.skill-card {
+  background: #FFFFFF;
+  border: 1px solid #E7E5E4;
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+  }
+
+  .skill-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 10px;
+
+    .skill-title-group {
+      display: flex;
+      flex-direction: column;
+
+      .skill-name {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1C1917;
+        line-height: 1.25;
+      }
+
+      .skill-meta {
+        font-size: 11px;
+        color: #A8A29E;
+        margin-top: 2px;
+      }
+    }
+
+    .skill-level-badge {
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+
+      &.badge-coral {
+        background: #FFF2EE;
+        color: #F2542D;
+      }
+
+      &.badge-mint {
+        background: #E6F5F2;
+        color: #0E7C7B;
+      }
+
+      &.badge-charcoal {
+        background: #F5F5F4;
+        color: #44403C;
+      }
+    }
+  }
+
+  // Barra de progreso
+  .skill-bar-track {
+    width: 100%;
+    height: 7px;
+    background: #F0EFEB;
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 6px;
+
+    .skill-bar-fill {
+      height: 100%;
+      border-radius: 999px;
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+
+      &.fill-coral {
+        background: linear-gradient(90deg, #F2542D, #FF7B54);
+      }
+
+      &.fill-mint {
+        background: linear-gradient(90deg, #0E7C7B, #20B2AA);
+      }
+
+      &.fill-charcoal {
+        background: linear-gradient(90deg, #44403C, #78716C);
+      }
+    }
+  }
+
+  .skill-footer {
+    display: flex;
+    justify-content: flex-end;
+
+    .skill-percent {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #78716C;
+    }
+  }
+}
+
+// ==========================================
+// CHIPS DE HERRAMIENTAS
+// ==========================================
+.chips-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .tool-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FFFFFF;
+    border: 1px solid #E7E5E4;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #44403C;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+    transition: all 0.15s ease;
+
+    ion-icon {
+      font-size: 14px;
+      color: #0E7C7B;
+    }
+
+    &:hover {
+      background: #F5F5F4;
+      border-color: #D6D3D1;
+      color: #1C1917;
+      transform: translateY(-1px);
+    }
+  }
+}
+
+// ==========================================
+// SECCIÓN DE CONTACTO FINAL
+// ==========================================
+.contact-section {
+  background: #FFFFFF;
+  border: 1px solid #E7E5E4;
+  border-radius: 16px;
+  padding: 18px 16px;
+  margin-top: 28px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+
+  .contact-header {
+    margin-bottom: 16px;
+
+    .contact-kicker {
+      display: inline-block;
+      font-size: 10.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      color: #F2542D;
+      background: #FFF2EE;
+      padding: 3px 8px;
+      border-radius: 999px;
+      margin-bottom: 6px;
+    }
+
+    .contact-title {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 20px;
+      color: #1C1917;
+      margin: 0 0 4px 0;
+      font-weight: 700;
+
+      em {
+        font-style: italic;
+        color: #0E7C7B;
+      }
+    }
+
+    .contact-desc {
+      font-size: 12px;
+      color: #78716C;
+      margin: 0;
+      line-height: 1.4;
+    }
+  }
+
+  .contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 13px;
+    background: #FAFAF8;
+    border: 1px solid #E7E5E4;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.18s ease;
+
+    &:hover {
+      background: #FFFFFF;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+      transform: translateX(2px);
+    }
+
+    .contact-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+
+      ion-icon {
+        font-size: 18px;
+      }
+    }
+
+    &.card-coral .contact-icon-box {
+      background: #FFF2EE;
+      color: #F2542D;
+    }
+
+    &.card-mint .contact-icon-box {
+      background: #E6F5F2;
+      color: #0E7C7B;
+    }
+
+    &.card-charcoal .contact-icon-box {
+      background: #F5F5F4;
+      color: #1C1917;
+    }
+
+    .contact-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+
+      .contact-label {
+        font-size: 11px;
+        color: #78716C;
+        font-weight: 500;
+      }
+
+      .contact-value {
+        font-size: 13px;
+        font-weight: 600;
+        color: #1C1917;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .contact-arrow {
+      font-size: 15px;
+      color: #A8A29E;
+      flex-shrink: 0;
+      transition: transform 0.15s ease;
+    }
+
+    &:hover .contact-arrow {
+      color: #1C1917;
+      transform: translateX(2px);
+    }
+  }
+}

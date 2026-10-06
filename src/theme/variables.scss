@@ -1,2 +1,40 @@
-// For information on how to create your own theme, please refer to:
-// https://ionicframework.com/docs/theming/
+// ==========================================
+// PALETA EDITORIAL UNIFICADA
+// ==========================================
+:root {
+  --ion-background-color: #FAFAF8;
+  --ion-background-color-rgb: 250, 250, 248;
+
+  --ion-text-color: #1C1917;
+  --ion-text-color-rgb: 28, 25, 23;
+
+  --ion-toolbar-background: #FAFAF8;
+  --ion-item-background: #FFFFFF;
+  --ion-card-background: #FFFFFF;
+
+  --ion-color-primary: #F2542D;
+  --ion-color-primary-rgb: 242, 84, 45;
+  --ion-color-primary-contrast: #FFFFFF;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #d54927;
+  --ion-color-primary-tint: #f36542;
+
+  --ion-color-secondary: #0E7C7B;
+  --ion-color-secondary-rgb: 14, 124, 123;
+  --ion-color-secondary-contrast: #FFFFFF;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #0c6d6c;
+  --ion-color-secondary-tint: #268988;
+
+  --ion-color-step-50: #F7F7F4;
+  --ion-color-step-100: #EFECE6;
+  --ion-color-step-150: #E7E5E0;
+  --ion-color-step-200: #DCD8D0;
+  --ion-color-step-300: #C4BFB5;
+  --ion-color-step-400: #A8A29A;
+  --ion-color-step-500: #78716C;
+  --ion-color-step-600: #57534E;
+  --ion-color-step-700: #44403C;
+  --ion-color-step-800: #292524;
+  --ion-color-step-900: #1C1917;
+}

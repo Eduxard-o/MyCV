@@ -1,19 +1,130 @@
-<ion-header [translucent]="true">
+<ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>
-      Habilidades
-    </ion-title>
+    <div class="brand" slot="start">
+      <span class="brand-mark">E</span>
+      <span class="brand-text">eduardo<span class="brand-muted">.cv</span></span>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-accordion-group>
-    <ion-accordion *ngFor="let e of habilidades">
-      <ion-item slot="header">
-        <ion-label>{{ e.titulo }}</ion-label>
-        <ion-badge slot="end">{{ e.anio }}</ion-badge>
-      </ion-item>
-      <div slot="content" class="ion-padding">{{ e.lugar }}</div>
-    </ion-accordion>
-  </ion-accordion-group>
+<ion-content class="ion-padding" [fullscreen]="true">
+
+  <!-- ==================== PAGE HEADER ==================== -->
+  <header class="page-intro">
+    <span class="intro-kicker">Capacidades Técnicas</span>
+    <h1 class="intro-title">Stack <em>& Habilidades</em></h1>
+    <p class="intro-desc">
+      Tecnologías dominadas, herramientas de trabajo y canales de contacto directo.
+    </p>
+  </header>
+
+  <!-- ==================== BACKEND & CORE ==================== -->
+  <section class="stack-section">
+    <div class="section-badge">
+      <ion-icon name="server-outline"></ion-icon>
+      <h2>Backend & Datos</h2>
+    </div>
+
+    <div class="skills-grid">
+      <article class="skill-card" *ngFor="let s of backendSkills">
+        <div class="skill-head">
+          <div class="skill-title-group">
+            <span class="skill-name">{{ s.nombre }}</span>
+            <span class="skill-meta">{{ s.origen }} • Desde {{ s.anio }}</span>
+          </div>
+          <span class="skill-level-badge" [ngClass]="'badge-' + s.color">{{ s.etiquetaNivel || (s.nivel >= 80 ? 'Avanzado' : s.nivel >= 60 ? 'Intermedio' : 'Básico') }}</span>
+        </div>
+
+        <div class="skill-bar-track">
+          <div 
+            class="skill-bar-fill" 
+            [ngClass]="'fill-' + s.color" 
+            [style.width.%]="s.nivel">
+          </div>
+        </div>
+
+        <div class="skill-footer">
+          <span class="skill-percent">{{ s.nivel }}% Dominio</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ==================== FRONTEND & MÓVIL ==================== -->
+  <section class="stack-section">
+    <div class="section-badge">
+      <ion-icon name="code-slash-outline"></ion-icon>
+      <h2>Frontend & Móvil</h2>
+    </div>
+
+    <div class="skills-grid">
+      <article class="skill-card" *ngFor="let s of frontendSkills">
+        <div class="skill-head">
+          <div class="skill-title-group">
+            <span class="skill-name">{{ s.nombre }}</span>
+            <span class="skill-meta">{{ s.origen }} • Desde {{ s.anio }}</span>
+          </div>
+          <span class="skill-level-badge" [ngClass]="'badge-' + s.color">{{ s.etiquetaNivel || (s.nivel >= 80 ? 'Avanzado' : s.nivel >= 60 ? 'Intermedio' : 'Básico') }}</span>
+        </div>
+
+        <div class="skill-bar-track">
+          <div 
+            class="skill-bar-fill" 
+            [ngClass]="'fill-' + s.color" 
+            [style.width.%]="s.nivel">
+          </div>
+        </div>
+
+        <div class="skill-footer">
+          <span class="skill-percent">{{ s.nivel }}% Dominio</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ==================== HERRAMIENTAS & METODOLOGÍAS ==================== -->
+  <section class="stack-section">
+    <div class="section-badge">
+      <ion-icon name="layers-outline"></ion-icon>
+      <h2>Herramientas & Entornos</h2>
+    </div>
+
+    <div class="chips-container">
+      <span class="tool-chip" *ngFor="let h of herramientas">
+        <ion-icon name="checkmark-circle-outline"></ion-icon>
+        {{ h }}
+      </span>
+    </div>
+  </section>
+
+  <!-- ==================== CONTACTO & CONEXIÓN ==================== -->
+  <section class="contact-section">
+    <div class="contact-header">
+      <span class="contact-kicker">¿Hablamos?</span>
+      <h2 class="contact-title">Conecta <em>Conmigo</em></h2>
+      <p class="contact-desc">
+        Disponible para oportunidades laborales, desarrollo de software y consultas profesionales.
+      </p>
+    </div>
+
+    <div class="contact-cards">
+      <a 
+        *ngFor="let c of contactos" 
+        [href]="c.enlace" 
+        [target]="c.icono !== 'mail-outline' ? '_blank' : '_self'"
+        rel="noopener noreferrer"
+        class="contact-card"
+        [ngClass]="'card-' + c.color">
+        <div class="contact-icon-box">
+          <ion-icon [name]="c.icono"></ion-icon>
+        </div>
+        <div class="contact-body">
+          <span class="contact-label">{{ c.titulo }}</span>
+          <span class="contact-value">{{ c.valor }}</span>
+        </div>
+        <ion-icon name="chevron-forward-outline" class="contact-arrow"></ion-icon>
+      </a>
+    </div>
+  </section>
+
 </ion-content>

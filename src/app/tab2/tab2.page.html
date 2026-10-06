@@ -1,37 +1,91 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>
-      Formación
-    </ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <div class="brand" slot="start">
+      <span class="brand-mark">E</span>
+      <span class="brand-text">eduardo<span class="brand-muted">.cv</span></span>
+    </div>
   </ion-toolbar>
+
+  <!-- Selector de segmentos: Experiencia y Proyectos unidos -->
+  <div class="segment-container">
+    <ion-segment [value]="segmento" (ionChange)="cambiarSegmento($event)">
+      <ion-segment-button value="experiencia">
+        <ion-icon name="briefcase-outline"></ion-icon>
+        <ion-label>Experiencia</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="proyectos">
+        <ion-icon name="folder-outline"></ion-icon>
+        <ion-label>Proyectos</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </div>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div class="timeline">
-    <div class="timeline-item" *ngFor="let e of educacion">
-      <div class="timeline-marker"></div>
-      <div class="timeline-content">
-        <span class="timeline-date">{{ e.anio }}</span>
-        <h2 class="timeline-title">{{ e.titulo }}</h2>
-        <p class="timeline-subtitle">{{ e.institucion }}</p>
-        <p class="timeline-description">{{ e.descripcion }}</p>
+<ion-content class="ion-padding" [fullscreen]="true">
+
+  <!-- ==================== VISTA 1: EXPERIENCIA / TRAYECTORIA ==================== -->
+  <section *ngIf="segmento === 'experiencia'" class="tab-section animate-fade">
+    <div class="section-intro">
+      <p class="section-kicker">MI RECORRIDO</p>
+      <h1 class="section-heading">Trayectoria & Formación</h1>
+      <p class="section-subtext">Historial de experiencia práctica profesional y formación en ingeniería de software.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item" *ngFor="let exp of experiencias" [ngClass]="exp.tipo">
+        <div class="timeline-marker"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <span class="timeline-date">{{ exp.periodo }}</span>
+            <span class="timeline-badge" [ngClass]="exp.tipo">{{ exp.badge }}</span>
+          </div>
+          <h2 class="timeline-title">{{ exp.cargo }}</h2>
+          <p class="timeline-subtitle">
+            <ion-icon [name]="exp.icono" class="subtitle-icon"></ion-icon>
+            {{ exp.institucion }}
+          </p>
+          <p class="timeline-description">{{ exp.descripcion }}</p>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="section-title" style="margin-top: 40px;">TRABAJO SELECCIONADO</div>
-  <h1 class="main-title">Proyectos</h1>
-
-  <div class="projects-container">
-    <div class="project-card" *ngFor="let p of proyectos; let i = index">
-      <div class="project-index">0{{ i + 1 }} / 0{{ proyectos.length }}</div>
-      <h2 class="project-title">{{ p.proyecto }}</h2>
-      <p class="project-desc">{{ p.descripcion }}</p>
-      
-      <div class="project-footer">
-        <span class="project-role">{{ p.rol }}</span>
-        <ion-icon name="open-outline" class="project-icon"></ion-icon>
-      </div>
+  <!-- ==================== VISTA 2: PROYECTOS SELECCIONADOS ==================== -->
+  <section *ngIf="segmento === 'proyectos'" class="tab-section animate-fade">
+    <div class="section-intro">
+      <p class="section-kicker">TRABAJO SELECCIONADO</p>
+      <h1 class="section-heading">Proyectos Destacados</h1>
+      <p class="section-subtext">Sistemas reales desarrollados con foco en arquitectura backend y pruebas de rendimiento.</p>
     </div>
-  </div>
+
+    <div class="projects-container">
+      <article class="project-card" *ngFor="let p of proyectos; let i = index">
+        <div class="project-top">
+          <span class="project-index">{{ (i + 1 < 10 ? '0' + (i + 1) : (i + 1)) }} / {{ (proyectos.length < 10 ? '0' + proyectos.length : proyectos.length) }}</span>
+          <span class="project-tag">{{ p.categoria }}</span>
+        </div>
+
+        <h2 class="project-title">{{ p.titulo }}</h2>
+        <p class="project-role-badge">
+          <ion-icon name="code-slash-outline"></ion-icon>
+          Rol: {{ p.rol }}
+        </p>
+        <p class="project-desc">{{ p.descripcion }}</p>
+
+        <!-- Chips de tecnologías -->
+        <div class="tech-stack">
+          <span class="tech-pill" *ngFor="let t of p.tecnologias">{{ t }}</span>
+        </div>
+
+        <div class="project-footer">
+          <a [href]="p.enlace" target="_blank" rel="noopener noreferrer" class="project-link-btn">
+            <span>Ver repositorio</span>
+            <ion-icon name="open-outline"></ion-icon>
+          </a>
+        </div>
+      </article>
+    </div>
+  </section>
+
 </ion-content>
+

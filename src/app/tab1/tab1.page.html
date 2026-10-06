@@ -1,34 +1,109 @@
-<ion-header [translucent]="true">
-  <ion-toolbar color="primary">
-    <ion-title>
-      Mi Perfil
-    </ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <div class="brand" slot="start">
+      <span class="brand-mark">E</span>
+      <span class="brand-text">eduardo<span class="brand-muted">.cv</span></span>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <ion-card>
-    <ion-card-header class="ion-text-center">
-      <ion-avatar style="margin: 0 auto; width: 120px; height: 120px;">
-        <img src="assets/foto.jpg" alt="Foto" />
-      </ion-avatar>
-      <ion-card-title>Eduardo Fabricio Ganchala Castillo</ion-card-title>
-      <ion-card-subtitle>Desarrollador de Software</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content class="ion-text-justify">
-      Estudiante de Desarrollo de Software enfocado en la construcción de sistemas eficientes. Experiencia práctica en el desarrollo backend con el ecosistema Java/Kotlin y creación de interfaces modernas. Apasionado por la resolución de problemas mediante metodologías ágiles.
-    </ion-card-content>
-  </ion-card>
+<ion-content class="ion-padding" [fullscreen]="true">
 
-  <ion-list lines="none">
-    <ion-item *ngFor="let c of contactos">
-      <ion-icon [name]="c.icono" slot="start" color="primary"></ion-icon>
-      <ion-label>{{ c.valor }}</ion-label>
-    </ion-item>
-  </ion-list>
+  <!-- ==================== HERO CARD ==================== -->
+  <section class="hero-card">
+    <div class="hero-topline">
+      <span class="status-dot"></span>
+      Disponible para nuevas oportunidades
+    </div>
 
-  <ion-button expand="block" href="mailto:eduardoganchala29@gmail.com" class="ion-margin-top">
-    <ion-icon name="mail" slot="start"></ion-icon>
-    Contáctame
-  </ion-button>
+    <div class="profile-row">
+      <div class="avatar-wrapper">
+        <img src="assets/foto.jpg" alt="Eduardo Ganchala" class="avatar-img" />
+      </div>
+      <div class="profile-info">
+        <p class="profile-kicker">Hola, soy</p>
+        <h1 class="profile-name">Eduardo<br><em>Ganchala</em></h1>
+      </div>
+    </div>
+
+    <p class="hero-role">Desarrollador de Software</p>
+
+    <p class="hero-description">
+      Desarrollador de software en formación, especializado en arquitectura y desarrollo backend, con conocimientos sólidos en frontend que me permiten comprender el producto de extremo a extremo. 
+      Experiencia en proyectos académicos y prácticas preprofesionales, aplicando buenas prácticas, trabajo en equipo y pruebas de rendimiento.
+    </p>
+
+    <div class="hero-location">
+      <ion-icon name="location-outline"></ion-icon>
+      Quito, Ecuador <span class="dot-separator">•</span> ESFOT — EPN
+    </div>
+
+    <div class="hero-actions">
+      <a href="mailto:eduardoganchala29@gmail.com" class="btn-primary">
+        <ion-icon name="mail-outline"></ion-icon>
+        Contáctame
+      </a>
+      <a href="https://github.com/Eduxard-o" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+        <ion-icon name="logo-github"></ion-icon>
+        GitHub
+      </a>
+    </div>
+  </section>
+
+  <!-- ==================== STATS GRID ==================== -->
+  <section class="stats-grid">
+    <div class="stat-card" *ngFor="let s of stats">
+      <strong>{{ s.valor }}</strong>
+      <span>{{ s.etiqueta }}<br>{{ s.etiqueta2 }}</span>
+    </div>
+  </section>
+
+  <!-- ==================== MI RECORRIDO ==================== -->
+  <section class="quick-section">
+    <div class="section-intro">
+      <p class="section-kicker">MI RECORRIDO</p>
+      <h2 class="section-heading">Una mirada rápida</h2>
+    </div>
+
+    <div class="quick-list">
+      <div class="quick-item" *ngFor="let r of recorrido">
+        <div class="round-icon" [ngClass]="r.color">
+          <ion-icon [name]="r.icono"></ion-icon>
+        </div>
+        <div class="quick-info">
+          <strong>{{ r.cargo }}</strong>
+          <span>{{ r.lugar }}</span>
+        </div>
+        <b class="quick-period">{{ r.periodo }}</b>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CANALES DE CONTACTO ==================== -->
+  <section class="contact-section">
+    <div class="section-intro">
+      <p class="section-kicker">CONECTA CONMIGO</p>
+      <h2 class="section-heading">Canales directos</h2>
+    </div>
+
+    <div class="contact-list">
+      <a *ngFor="let c of contactos" 
+         [href]="c.href" 
+         [attr.target]="c.href?.startsWith('http') ? '_blank' : null"
+         rel="noopener noreferrer"
+         class="contact-card"
+         [class.no-link]="!c.href">
+        <div class="contact-icon-wrap">
+          <ion-icon [name]="c.icono"></ion-icon>
+        </div>
+        <div class="contact-info">
+          <span class="contact-type">{{ c.tipo }}</span>
+          <span class="contact-value">{{ c.valor }}</span>
+        </div>
+        <ion-icon name="open-outline" class="contact-arrow" *ngIf="c.href"></ion-icon>
+      </a>
+    </div>
+  </section>
+
 </ion-content>
+
